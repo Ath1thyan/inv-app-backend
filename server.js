@@ -33,9 +33,9 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 
 // Routes
-app.get("/", (req, res) => {
-  res.send("Hello World");
-})
+// app.get("/", (req, res) => {
+//   res.send("Hello World");
+// })
 app.use("/api/products", require("./routes/productRoutes"));
 
 app.use("/api/users", require("./routes/userRoutes"));
@@ -44,14 +44,13 @@ app.use("/api/bills", require("./routes/billsRoutes"));
 
 // Listen
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT;
 const HOST_NAME = process.env.HOST_NAME;
-// const PORT = process.env.PORT;
 
-// app.listen(PORT, HOST_NAME, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
-
-app.listen(3005, () => {
+app.listen(PORT, HOST_NAME, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// app.listen(3005, () => {
+//   console.log(`Server is running on port ${PORT}`);
+// });
